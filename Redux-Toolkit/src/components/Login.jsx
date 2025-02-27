@@ -22,8 +22,6 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await login({ email, password }).unwrap();
-      console.log(response, "===========esfsdfs");
-
       dispatch(setUser(response));
       navigate("/");
     } catch (error) {
