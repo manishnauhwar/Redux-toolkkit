@@ -16,7 +16,7 @@ const ViewContact = () => {
       <Navbar showDashboardButton={true} />
     <div className="page-container">
       
-      <div className="details-container">
+      <div className="profile-container">
         <h2>Contact Details</h2>
         <p><strong>Name:</strong> {contact.name}</p>
         <p><strong>Email:</strong> {contact.email}</p>
