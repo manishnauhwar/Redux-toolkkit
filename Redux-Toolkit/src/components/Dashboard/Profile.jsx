@@ -1,30 +1,30 @@
 import React from 'react';
-import {useGetprofileQuery } from '../../features/auth/authApi';
-import '../../App.css';
-import { useNavigate } from 'react-router-dom';
+import { useGetprofileQuery } from '../../features/auth/authApi';
+import "../../App.css";
+import Navbar from "../../components/Navbar/Navbar";
 
 const Profile = () => {
-  const navigate = useNavigate();
-  const { data: user, error, isloading } = useGetprofileQuery();
-
-  if (isloading) return <p>Loading...</p>
-  if (error) return <p>Error fetching data...</p>
+  const { data: user, error, isLoading } = useGetprofileQuery();
+  
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error fetching data...</p>;
 
   return (
-    <div className='modal'>
+    <div className='nav-common'>
+      <Navbar />
+    
+    <div className="page-container">
       
-      <div className='modal-container'>
-        <button className="close-btn" onClick={()=> navigate('/dashboard')}>
-          <span>&times;</span>
-        </button>
+      <div className="profile-container">
         <h1>User Information</h1>
         <div className="user-info">
-        <p>Username:{user?.username}</p>
-        <p>Email:{user?.email}</p>
+          <p><strong>Username:</strong> {user?.username}</p>
+          <p><strong>Email:</strong> {user?.email}</p>
         </div>
       </div>
     </div>
-  )
+    </div>
+  );
 };
 
 export default Profile;
